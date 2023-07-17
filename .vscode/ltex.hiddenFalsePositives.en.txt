@@ -1,0 +1,1 @@
+{"rule":"EN_UNPAIRED_BRACKETS","sentence":"^\\QOn the contrary, we propose for the convenience of future research on CD-FSOD a prepared version of this \"meta-dataset” under the same format.\\E$"}

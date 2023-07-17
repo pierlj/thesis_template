@@ -1,0 +1,16 @@
+\makeatletter
+\@addtoreset{table}{section}
+\AtBeginEnvironment{table}{\ifnumequal{\value{table}}{0}{\addtocontents{lot}{\protect\addvspace{10pt}}}{}}
+\makeatother
+% \stopcontents[chapters]
+\chapter*{Conclusion and Perspectives}
+\addcontentsline{toc}{chapter}{Conclusion and Perspectives}
+\stepcounter{chapter}
+
+\lipsum[5]
+
+
+
+
+
+

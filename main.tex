@@ -1,0 +1,174 @@
+\documentclass[11pt]{book}
+%\usepackage{natbib}
+\usepackage[
+backend=bibtex,
+style=numeric,
+doi=false,
+isbn=true,
+url=false,
+eprint=false,
+abbreviate=false,
+sorting=none
+]{biblatex}
+\addbibresource{bibliography}
+
+
+\input{setup.tex}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%                          Begin Document					  %
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\fancypagestyle{empty}{
+	\fancyhf{}
+	\renewcommand{\headrulewidth}{0 pt}
+	\renewcommand{\footrulewidth}{0 pt}
+}
+% \setkeys{Gin}{draft}
+\input{title_page.tex}
+
+\pagestyle{fancy}
+
+\renewcommand{\sectionmark}[1]{\markright{\thesection~- ~#1}}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername~\thechapter~-~ #1}{}}
+
+\fancypagestyle{main}{
+\fancyhf{} % clear all header fields
+\fancyhead[LE]{\scshape\leftmark}
+\fancyhead[RO]{\scshape\rightmark}
+% \fancyfoot[LE,RO]{\thepage}
+\fancyfoot[RO]{\vspace{8mm}\vfootline\hskip\linepagesep\hspace{1mm}\thepage}
+\fancyfoot[LE]{\vspace{8mm}\thepage\hskip\linepagesep\hspace{1mm}\vfootline}
+\newskip\linepagesep \linepagesep 5pt\relax
+  \def\vfootline{%
+    \begingroup\color{THEMECOLOR}\rule[-990pt]{2pt}{1000pt}\endgroup}
+\renewcommand{\headrulewidth}{0 pt}
+\renewcommand{\footrulewidth}{0 pt}
+}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[RO]{\vspace{8mm}\vfootline\hspace{1mm}\hskip\linepagesep\thepage}
+	\fancyfoot[LE]{\vspace{8mm}\thepage\hspace{1mm}\hskip\linepagesep\vfootline}
+	\newskip\linepagesep \linepagesep 5pt\relax
+	\def\vfootline{%
+		\begingroup\color{THEMECOLOR}\rule[-990pt]{2pt}{1000pt}\endgroup}
+	\renewcommand{\headrulewidth}{0 pt}
+	\renewcommand{\footrulewidth}{0 pt}
+}
+
+\fancypagestyle{partplain}{%
+  \fancyhf{}%
+  \fancyfoot[RO]{\vspace{8mm}\vfootline\hskip\linepagesep\color{white}\thepage}
+	\fancyfoot[LE]{\vspace{8mm}\color{white}\thepage\hskip\linepagesep\vfootline}
+	\newskip\linepagesep \linepagesep 5pt\relax
+	\def\vfootline{%
+		\begingroup\color{white}\rule[-990pt]{2pt}{1000pt}\endgroup}
+	\renewcommand{\headrulewidth}{0 pt}
+	\renewcommand{\footrulewidth}{0 pt}
+}
+
+\pagestyle{plain}
+\frontmatter
+{
+	\setlength{\parskip}{.7em}
+	
+	\titlespacing*{\section}{0pt}{.9em}{.8em}
+	%\titlespacing*{\subsection}
+	%{0pt}{5.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+	\renewcommand{\baselinestretch}{1.1}
+	\sloppy
+	
+
+
+	\phantomsection
+	\input{chapters/abstract.tex}
+	
+
+	% \phantomsection
+	% \include{chapters/acknowledgement}
+
+	\cleardoublepage
+	
+}
+
+{
+	\hypersetup{linkcolor=black}
+	
+	{
+		\phantomsection
+		\addcontentsline{toc}{chapter}{Table of Contents}
+        \tableofcontents
+        % \FullToC
+    }
+	
+	{
+		\cleardoublepage
+		\phantomsection
+		\addcontentsline{toc}{chapter}{List of Figures}
+		\listoffigures
+	}
+	
+	
+	{
+		\cleardoublepage
+		\phantomsection
+		\addcontentsline{toc}{chapter}{List of Tables}
+		\listoftables
+		
+	}
+
+
+}
+
+\cleardoublepage
+\phantomsection
+\input{glossary.tex}
+
+
+\setlength{\parskip}{.7em}
+
+\titlespacing*{\section}{0pt}{.9em}{.8em}
+\renewcommand{\baselinestretch}{1.1}
+\sloppy
+
+
+
+
+\mainmatter
+
+\pagestyle{main}
+
+
+\markboth{\textsc{Introduction}}{\textsc{Introduction}}
+\input{chapters/introduction.tex}
+
+
+% \stopcontents[chapters]
+\part{Part title}%
+\input{chapters/chap1.tex}
+
+
+\bookmarksetup{startatroot}
+\input{chapters/conclusion.tex}
+
+% \stopcontents[chapters]
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
+\printbibliography
+
+\cleardoublepage
+\appendix
+
+\renewcommand{\chaptermark}[1]{\markboth{Appendix~\thechapter~-~ #1}{}}
+
+\newpage\null\thispagestyle{empty}\newpage
+\end{document}

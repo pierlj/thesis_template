@@ -1,0 +1,390 @@
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[includefoot, a4paper,left=3cm,right=2.5cm,top=3cm,bottom=3cm, twoside]{geometry}
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{stmaryrd}
+\usepackage{amssymb}
+\usepackage{amsmath, nccmath}
+\usepackage{dsfont}
+\usepackage{bm}
+\usepackage{libertine}
+\usepackage[pdftex]{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{siunitx}
+\usepackage{apalike}
+\usepackage{wrapfig}
+\usepackage{tikz}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{calc}
+\newcommand{\highlight}[2]{\colorbox{#1!17}{$\displaystyle #2$}}
+%\newcommand{\highlight}[2]{\colorbox{#1!17}{$#2$}}
+\newcommand{\highlightdark}[2]{\colorbox{#1!47}{$\displaystyle #2$}}
+
+% Commands for Highlighting text -- non tikz method
+\renewcommand{\highlight}[2]{\colorbox{#1!17}{#2}}
+\renewcommand{\highlightdark}[2]{\colorbox{#1!47}{#2}}
+\usepackage{enumitem}
+\usepackage{epigraph}
+%\usetikzlibrary{shadows.blur}
+\usepackage{lscape}
+\usepackage{mdframed}
+\usepackage{titletoc}
+\usepackage{tocloft}
+%\usepackage{lipsum}
+%\usepackage{cite}
+\usepackage{booktabs}
+\usepackage{arydshln}
+\usepackage{fontawesome} 
+\usepackage{calc}
+\usepackage[newparttoc]{titlesec} 
+\usepackage[export]{adjustbox}
+\usepackage[bottom]{footmisc}
+\usepackage{appendix}
+\usepackage{tcolorbox}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[colorlinks=true,
+citecolor=linkColor,linkcolor=linkColor]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable} 
+\usepackage[capitalize,nameinlink]{cleveref}
+\crefname{section}{Sec.}{Secs.}
+\Crefname{section}{Section}{Sections}
+\Crefname{table}{Table}{Tables}
+\crefname{table}{Tab.}{Tabs.}
+\crefname{property}{Property}{Properties}
+\crefname{appproperty}{Property}{Properties}
+\crefname{appendix}{App.}{Apps.}
+\crefname{chapter}{Chap.}{Chaps.}
+\Crefname{chapter}{Chapter}{Chapters}
+\crefname{part}{Part}{Parts}
+% \creflabelformat{section}{#2\thechapter.#1#3}
+% \Crefname{part}{Chapter}{Chapters}
+
+\usepackage{tabto}
+\usepackage{pdfpages}
+
+\usepackage{tabularx}
+\usepackage{array}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\usepackage{bookmark}
+\usepackage{rotating}
+
+\usepackage{stmaryrd}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+
+\newcolumntype{P}[1]{>{\centering\arraybackslash}m{#1}}
+
+\newcommand{\midsepremove}{\aboverulesep = 0mm \belowrulesep = 0mm}
+\midsepremove
+\newcommand{\midsepdefault}{\aboverulesep = 0.605mm \belowrulesep = 0.984mm}
+\midsepdefault
+
+\usepackage{ntheorem}
+\theoremstyle{break}
+\newtheorem{property}{Property}
+\newtheorem{appproperty}{Property}
+\newtheorem{proposition}{Proposition}
+\newtheorem{appproposition}{Proposition}
+\theoremstyle{nonumberplain}
+\newtheorem{proof}{Proof}
+
+% toc depth parameters
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{1}
+
+
+\interfootnotelinepenalty=10000
+
+%%%%%%%%%%%%%%%%%%%%
+% Color definition
+%%%%%%%%%%%%%%%%%%%%
+\definecolor{linkColor}{HTML}{000000}%black
+\definecolor{secnum}{RGB}{13,151,225}
+\definecolor{ptcbackground}{RGB}{240,240,240}
+\definecolor{ptctitle}{RGB}{0,177,235}
+\definecolor{THEMECOLOR}{HTML}{750000}
+
+\newcommand{\maj}[1]{{\color{red!40!yellow}{{#1}}}}
+
+\newcommand{\rbf}[1]{\textcolor{red}{\textbf{#1}}}
+\newcommand{\bbf}[1]{\textcolor{blue}{\textbf{#1}}}
+
+\newcommand{\rtd}{\textbf{\textcolor{BrickRed}{\faThumbsDown}}}
+\newcommand{\gtu}{\textbf{\textcolor{OliveGreen}{\faThumbsUp}}}
+
+\newcommand{\bfsc}[1]{\textsc{\textbf{#1}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewbibmacro{in:}{%
+	\ifentrytype{article}
+	{}
+	{\bibstring{in}%
+		\printunit{\intitlepunct}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Format titles of various depth (chapters, sections, subsections)
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+% \titlespacing*{\paragraph}
+% {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titleformat{\chapter}[display]
+{\normalfont\color{THEMECOLOR}}
+{\Huge\color{THEMECOLOR}\bfseries\sffamily\textsc\chaptertitlename\hspace*{2mm}%
+	\begin{tikzpicture}[baseline={([yshift=-0.7ex]current bounding box.center)}]
+		\node[fill=THEMECOLOR,rectangle,text=white, rounded corners=0.8mm] {\thechapter};
+	\end{tikzpicture}
+}
+{1ex}
+{\titlerule[1.5pt]\vspace*{1.ex}\Huge\color{black}\sffamily\textsc}
+[]
+
+\titleformat{name=\chapter,numberless}[display]
+{\normalfont\color{black}}
+{}
+{1ex}
+{\huge\textsc}
+[]
+
+
+\titleformat{\part}[display]
+{\huge\bfseries}
+{	
+	\begin{tikzpicture}[overlay,remember picture,shift=(current page.north west)]
+		% \draw[fill=THEMECOLOR] (current page.south west) rectangle (current page.north east);
+		% \draw[white, ultra thick] ($current page.south west + (1in,1in)$) rectangle (current page.north east);
+		\begin{scope}[x={(current page.north east)},y={(current page.south west)}]
+			\draw[fill=THEMECOLOR] (0,0) rectangle (1,1);
+			% \draw[white, line width=8pt] ($(0,0)+(1cm,-1cm)$) rectangle ($(1,1)+(-1cm,+1cm)$);
+			\draw[white, line width=8pt] ($(1,1)+(-3.7cm,+1cm)$) -- ($(0,1)+(1cm,1cm)$) -- ($(0,0)+(1cm,-1cm)$) -- ($(1,0)+(-1cm,-1cm)$) -- ($(1,1)+(-1cm,+1cm)$) -- ($(1,1)+(-2.5cm,+1cm)$);
+			\end{scope}
+	\end{tikzpicture}%
+	\color{white}\sffamily\textsc\partname\nobreakspace\thepart\\
+	\vspace{5mm}\\
+	\color{white}\titlerule[3pt]}
+{0mm}
+{\huge\bfseries\color{white}\sffamily\textsc}
+[\vspace{2ex}{\titlerule[3pt]}]
+
+% \titleformat{\part}[display]
+% {\huge\bfseries}
+% {	
+% 	\begin{tikzpicture}[overlay,remember picture,shift=(current page.north west)]
+% 		% \draw[fill=THEMECOLOR] (current page.south west) rectangle (current page.north east);
+% 		% \draw[white, ultra thick] ($current page.south west + (1in,1in)$) rectangle (current page.north east);
+% 		\begin{scope}[x={(current page.north east)},y={(current page.south west)}]
+% 			% \draw[fill=THEMECOLOR] (0,0) rectangle (1,1);
+% 			% \draw[white, line width=8pt] ($(0,0)+(1cm,-1cm)$) rectangle ($(1,1)+(-1cm,+1cm)$);
+% 			\draw[THEMECOLOR, line width=8pt] ($(1,1)+(-4.2cm,+1cm)$) -- ($(0,1)+(1cm,1cm)$) -- ($(0,0)+(1cm,-1cm)$) -- ($(1,0)+(-1cm,-1cm)$) -- ($(1,1)+(-1cm,+1cm)$) -- ($(1,1)+(-3cm,+1cm)$);
+% 			\end{scope}
+% 	\end{tikzpicture}%
+% 	\color{THEMECOLOR}\sffamily\textsc\partname\nobreakspace\thepart\\
+% 	\vspace{5mm}\\
+% 	\color{THEMECOLOR}\titlerule[3pt]}
+% {0mm}
+% {\huge\bfseries\color{black}\sffamily\textsc}
+% [\color{THEMECOLOR}\vspace{2ex}{\titlerule[3pt]}]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title format in toc
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\titlecontents{part}[0pc]
+{\vspace*{8mm}}
+{\color{THEMECOLOR}\large\sffamily\bfseries\filcenter \partname~\thecontentslabel: }
+{\large\sffamily\bfseries\filcenter \thecontentslabel}
+{}
+[\color{THEMECOLOR}\titlerule]
+
+% \titlespacing{\chapter}{0pt}{-50pt}{0pt}
+\titlespacing{\section}{0mm}{1.5em}{-0.5\parskip}
+\titlespacing{\subsection}{0mm}{0.5em}{-\parskip}
+\titlespacing{\subsubsection}{0mm}{0.5em}{-\parskip}
+\titlespacing{\paragraph}{0mm}{0.5em}{-\parskip}
+\titlecontents{psection}[4.5em]{\addvspace{0.0em}}{\color{THEMECOLOR}\contentslabel{2.0em}}{\hspace*{-3em}}{\color{THEMECOLOR}\titlerule*[0.75em]{.}\contentspage}[\vspace{-5pt}]% define format for section of toc; entries: section, left, above, before with label, before without label, filler and page, after
+\titlecontents{psubsection}[6.5em]{}{\color{THEMECOLOR}\contentslabel{2.6em}}{\hspace*{-2.6em}}{\color{THEMECOLOR}\titlerule*[0.75em]{.}\contentspage}[\vspace{-5pt}]% define format for subsection of toc; entries: section, left, above, before with label, before without label, filler and page, after
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Boxes around chapter number in toc
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \renewcommand{\cftchappresnum}{%
+%     \rlap{
+% 		% \color{THEMECOLOR}\rule[-\dp\strutbox]{\cftchapnumwidth}{\dp\strutbox+\ht\strutbox+0.4ex}
+% 		\begin{tikzpicture}[baseline={([xshift=-1mm,yshift=-0.7ex]current bounding box.center)}]
+% 			\node[fill=THEMECOLOR,rectangle,text=white, rounded corners=0.5mm,minimum width=\cftchapnumwidth-5pt, minimum height=\cftchapnumwidth] {\quad};
+% 		\end{tikzpicture}
+% 	}%
+%     \hbox to \cftchapnumwidth\bgroup\color{white}\hss
+% 	}
+% \renewcommand{\cftchapaftersnum}{\hss\egroup}
+% \renewcommand{\cftchapaftersnumb}{\hskip0.3em\relax}
+
+\let\oldmainmatter\mainmatter
+ \renewcommand{\mainmatter}{%
+  \addtocontents{toc}{\protect\addvspace{15pt}}%
+  \oldmainmatter%
+ }
+
+\titlecontents{chapter}[0pc]
+{\vspace*{3mm}}
+{\sffamily\bfseries\hspace{5mm} \rlap{
+		\begin{tikzpicture}[baseline={([xshift=-1mm,yshift=-0.7ex]current bounding box.center)}]
+			\node[fill=THEMECOLOR,rectangle,text=white,rounded corners=0.5mm,minimum width=\cftchapnumwidth-5pt, minimum height=\cftchapnumwidth]{\thecontentslabel\quad};
+		\end{tikzpicture}
+	}%
+	\qquad}
+{\sffamily\bfseries \thecontentslabel}
+{\bfseries\hfill\contentspage}
+
+% \titlecontents{chapter}[0pc]
+% {\vspace*{3mm}}
+% {\sffamily\bfseries\hspace{5mm} \thecontentslabel--}
+% {\sffamily\bfseries \thecontentslabel}
+% {\bfseries\hfill\contentspage}
+
+% \setlength{\cftchapindent}{5mm}
+\setlength{\cftsecindent}{12mm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Command for partial toc in chapter  front page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\PartialToC{%
+\startcontents[chapters]%
+\hypersetup{linkcolor=THEMECOLOR,linktoc=all}%
+
+\begin{mdframed}[backgroundcolor=ptcbackground,hidealllines=true]
+\printcontents[chapters]{p}{1}[2]{
+	% Make content title in a box with rounded corners only on the left
+	\begin{tcolorbox}[width=\textwidth+3\fboxsep\relax, colframe=THEMECOLOR, colback=THEMECOLOR, arc=3mm, sharp corners=east]
+		\color{white}\bfseries\sffamily \large\textsc{Contents}
+	\end{tcolorbox}
+	\vspace{-10mm}
+	% \nopagebreak[4]
+	
+	% \vskip1pt
+	}
+\end{mdframed}%
+}
+
+\newcommand\PartialToCCh{%
+\startcontents[chapters]%
+\hypersetup{linkcolor=THEMECOLOR,linktoc=all}%
+
+\begin{mdframed}[backgroundcolor=ptcbackground,hidealllines=true]
+	\begin{tcolorbox}[width=\textwidth+3\fboxsep\relax, colframe=THEMECOLOR, colback=THEMECOLOR, arc=3mm, sharp corners=east]
+			
+		\color{white}\bfseries\sffamily \large\textsc{Contents}
+	\end{tcolorbox}
+	\vspace{-10mm}
+	\begingroup
+% \let\clearpage\relax
+	\let\pagebreak\relax
+	\printcontents[chapters]{p}{1}[2]{}
+	\endgroup
+	\end{mdframed}%
+
+}
+
+
+\newcommand{\chapabstract}[1]{
+	\vspace{-1cm}
+    \begin{quote}
+        \singlespacing\small
+		\large{\textbf{\textcolor{THEMECOLOR}{\textsc{Abstract}}}}\\
+        \textcolor{THEMECOLOR}{\rule{13.5cm}{0.5pt}}
+        \small{#1}
+        \vskip-4mm
+        \rule{13.5cm}{0.5pt}
+\end{quote}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtcolorbox{rmk}[1][]{
+	breakable,
+	%title=Remarque,
+	colback=white,
+	%colbacktitle=green!20!white,
+	%left=1cm,
+	left skip=1cm,
+	coltitle=black,
+	fonttitle=\bfseries,
+	bottomrule=0pt,
+	toprule=0pt,
+	leftrule=4pt,
+	rightrule=0pt,
+	titlerule=0pt,
+	arc=0pt,
+	outer arc=0pt,
+	colframe=THEMECOLOR   
+}	
+
+%%%%%%%%%%%%%%%%% 			New commands			%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\HRule}{\rule{\linewidth}{0.7mm}}
+\newcommand{\Hrule}{\rule{\linewidth}{0.3mm}}
+
+\newcommand{\ie}{\emph{i.e.}~}
+\newcommand{\eg}{\emph{e.g.}~}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+
+\addto\captionsenglish{% Replace "english" with the language you use
+  \renewcommand{\contentsname}%
+    {\rmfamily\mdseries\textsc{Table of Contents}\\ \color{THEMECOLOR}\rule{\textwidth}{2pt}}%
+}
+
+\addto\captionsenglish{% Replace "english" with the language you use
+  \renewcommand{\listfigurename}%
+    {\rmfamily\mdseries\textsc{List of Figures}\\ \color{THEMECOLOR}\rule{\textwidth}{2pt}}%
+}
+
+\addto\captionsenglish{% Replace "english" with the language you use
+  \renewcommand{\listtablename}%
+    {\rmfamily\mdseries\textsc{List of Tables}\\ \color{THEMECOLOR}\rule{\textwidth}{2pt}}%
+}
+
+\setlength\parindent{0pt}
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+
+% \renewcommand{\chaptermark}[1]{\markboth{\textsc{#1}}{}}
+% \renewcommand{\chaptermark}[1]{\markright{#1}}
+
+
+\usepackage{etoolbox}
+% \makeatletter
+% \patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{partplain}}{}{}
+% \makeatother
+
+\assignpagestyle{\part}{partplain}
+
+
+% \renewcommand{\thesection}{\arabic{section}}
+\setcounter{secnumdepth}{4}
+\setcounter{chapter}{1}
+
+\providecommand{\keywords}[1]{\textbf{\textit{Keywords---}} #1}
+
+\providecommand{\keywordsfr}[1]{\textbf{\textit{Mots-Clé---}} #1}
+
+
+\input{glossary_setup.tex}

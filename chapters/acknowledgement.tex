@@ -1,0 +1,10 @@
+\makeatletter
+\let\savedchap\@makeschapterhead
+\def\@makeschapterhead{\vspace*{-9em}\savedchap}
+\chapter*{Remerciements}
+\let\@makeschapterhead\savedchap
+\makeatletter
+\vspace{-3em}
+\addcontentsline{toc}{chapter}{Remerciements} 
+
+

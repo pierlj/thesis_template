@@ -1,0 +1,37 @@
+\usepackage[section=section]{glossaries}
+% \usepackage{glossary-longbooktabs}
+% \setglossarystyle{alttree}
+\setlength{\glsdescwidth}{12cm}
+
+% \renewcommand*{\glsclearpage}{\clearpage}
+
+\newglossary{symbols}{syo}{syi}{List of Symbols}    % custom glossary, type=mysmys
+\makenoidxglossaries
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                   Symbols                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\glsnoexpandfields
+
+\newglossaryentry{a_symbol}{
+    type=symbols,
+    sort={a_symbol},
+    name={$a$},
+    description={A symbol}}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                   Acronyms                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newglossaryentry{fsod}
+{
+    name=FSOD,
+    description={Few-Shot Object Detection}
+}
+
+
+\glsaddall
+\glsfindwidesttoplevelname
